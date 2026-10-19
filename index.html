@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Portafolio académico de Hazell Reyes, estudiante de Ingeniería de Sistemas."
+  >
+
+  <title>Hazell Reyes | Portafolio</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+  <header class="cabecera">
+    <nav class="contenedor navegacion" aria-label="Navegación principal">
+      <a class="marca" href="#inicio" aria-label="Hazell Reyes, inicio">
+        HR<span>.</span>
+      </a>
+
+      <ul class="menu">
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#habilidades">Habilidades</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#enlaces">Enlaces</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <section id="inicio" class="contenedor portada">
+      <div class="presentacion revelar">
+        <p class="etiqueta">PORTAFOLIO ACADÉMICO</p>
+
+        <h1>Hola, soy <span>Hazell Reyes.</span></h1>
+
+        <p class="introduccion">
+          Estudiante de Ingeniería de sistemas. Apasionada a la
+          tecnología y a la creación de soluciones a problemas reales.
+          Me gusta la naturaleza y el coding.
+        </p> 
+
+        <div class="acciones">
+          <a class="boton principal" href="#proyectos">
+            Explorar mis proyectos.
+          </a>
+
+          <a class="boton secundario" href="#sobre-mi">
+            Conoce más de mí.
+          </a>
+        </div>
+      </div>
+
+      <figure class="perfil revelar">
+        <img
+          src="img/perfil.jpg"
+          alt="Fotografía de Hazell Reyes"
+          width="480"
+          height="560"
+          fetchpriority="high"
+        >
+        <figcaption>
+          Investigar, Crear y Solucionar
+        </figcaption>
+      </figure>
+    </section>
+
+    <section id="sobre-mi" class="contenedor seccion revelar">
+      <p class="etiqueta">PERFIL DE HAZELL</p>
+      <h2>Tecnología y Creatividad</h2>
+
+      <p class="texto">
+        Soy Hazell, estudio Ing. de Sistemas.
+        Me interesa aprender de diferentes tecnologías para ampliar
+        mi conocimiento y solucionar problemas de la sociedad actual.
+        Considero que la tecnología puede ser usada en distintas
+        ramas y es una excelente herramienta para generar cambio.
+      </p>
+    </section>
+
+    <section id="habilidades" class="contenedor seccion revelar">
+      <p class="etiqueta">APRENDIZAJE</p>
+      <h2>Habilidades e intereses</h2>
+
+      <p class="texto">
+        Áreas que estoy explorando y fortaleciendo durante mi formación.
+      </p>
+
+      <ul class="habilidades">
+        <li>HTML y estructura web</li>
+        <li>CSS y diseño adaptable</li>
+        <li>Fundamentos de JavaScript</li>
+        <li>Bases de datos</li>
+        <li>Gestión de proyectos</li>
+        <li>Trabajo en equipo</li>
+      </ul>
+    </section>
+
+    <section id="proyectos" class="contenedor seccion">
+      <div class="revelar">
+        <p class="etiqueta">PRÁCTICA</p>
+        <h2>Proyectos académicos</h2>
+
+        <p class="texto">
+          Un espacio para documentar lo que voy construyendo.
+        </p>
+      </div>
+
+      <div class="proyectos">
+        <article class="tarjeta revelar">
+          <p class="tipo">DESARROLLO WEB</p>
+          <h3>Mi portafolio personal</h3>
+
+          <p>
+            Página desarrollada con HTML, CSS y JavaScript para
+            presentar mi perfil y practicar diseño adaptable.
+          </p>
+
+          <span class="estado">Proyecto actual</span>
+        </article>
+
+        <article class="tarjeta revelar">
+          <p class="tipo">PRÓXIMOS TRABAJOS</p>
+          <h3>Aprendizaje en progreso</h3>
+
+          <p>
+            Aquí incorporaré nuevos proyectos, sus objetivos,
+            las herramientas utilizadas y los resultados obtenidos.
+          </p>
+
+          <span class="estado">Próximamente</span>
+        </article>
+      </div>
+    </section>
+
+    <section id="enlaces" class="contenedor seccion revelar">
+      <p class="etiqueta">RECURSOS</p>
+      <h2>Sitios que inspiran mi aprendizaje</h2>
+
+      <p class="texto">
+        Recursos para consultar documentación, practicar y
+        descubrir proyectos.
+      </p>
+
+      <ul class="enlaces">
+        <li>
+          <a
+            href="https://github.com/natar0728"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub ↗
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="https://developer.mozilla.org/es/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            MDN Web Docs ↗
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="https://www.freecodecamp.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            freeCodeCamp ↗
+          </a>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor">
+      <p>
+        © <span id="anio">2026</span> Hazell Reyes.
+        Creado con HTML, CSS y JavaScript.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
