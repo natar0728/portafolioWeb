@@ -1,12 +1,16 @@
-/* Colores y valores reutilizables */
+/* ========================================
+   PALETA: BOSQUE, MUSGO Y PAPEL
+======================================== */
 :root {
-  --fondo: #0d200b;
-  --superficie: #153314;
-  --texto: #f3f9f1;
-  --secundario: #b6d5b6;
-  --acento: #c3ffa3;
-  --borde: #2e522b;
-  --radio: 22px;
+  --fondo: #10251c;
+  --superficie: #1b3528;
+  --texto: #f3efdf;
+  --secundario: #becbb5;
+  --acento: #d5e6a5;
+  --musgo: #7d9453;
+  --crema: #e8e3cb;
+  --tinta: #23382a;
+  --borde: #43563d;
 }
 
 * {
@@ -15,21 +19,27 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 110px;
+  scroll-padding-top: 140px;
 }
 
 body {
   margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
   color: var(--texto);
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.8;
+
   background:
     radial-gradient(
-      circle at 85% 10%,
-      rgba(92, 246, 125, 0.15),
+      ellipse at 95% 8%,
+      #52623b55,
+      transparent 35%
+    ),
+    radial-gradient(
+      ellipse at 0% 50%,
+      #53693733,
       transparent 35%
     ),
     var(--fondo);
-  line-height: 1.7;
 }
 
 a {
@@ -42,58 +52,77 @@ img {
   max-width: 100%;
 }
 
-button,
-a {
-  -webkit-tap-highlight-color: transparent;
-}
-
 a:focus-visible {
-  outline: 3px solid var(--acento);
+  outline: 3px solid currentColor;
   outline-offset: 6px;
 }
 
 .contenedor {
-  width: min(1100px, 90%);
+  width: min(1120px, 88%);
   margin-inline: auto;
 }
 
-/* Acceso directo para navegación con teclado */
+main {
+  overflow: clip;
+}
+
+section {
+  position: relative;
+}
+
+::selection {
+  color: var(--fondo);
+  background: var(--acento);
+}
+
+/* ========================================
+   ACCESIBILIDAD
+======================================== */
 .saltar {
   position: fixed;
   top: 12px;
   left: 12px;
   z-index: 100;
-  padding: 10px 18px;
+  padding: 10px 20px;
   color: var(--fondo);
   background: var(--acento);
-  transform: translateY(-160%);
+  border-radius: 30px;
+  transform: translateY(-180%);
 }
 
 .saltar:focus {
   transform: translateY(0);
 }
 
-/* Navegación */
+/* ========================================
+   NAVEGACIÓN FLOTANTE
+======================================== */
 .cabecera {
   position: sticky;
-  top: 0;
-  z-index: 10;
-  background: rgba(11, 32, 11, 0.94);
-  border-bottom: 1px solid var(--borde);
-  backdrop-filter: blur(14px);
+  top: 16px;
+  z-index: 20;
+
+  width: min(1180px, 94%);
+  margin: 16px auto 0;
+
+  background: #10251cee;
+  border: 1px solid #a8ba8040;
+  border-radius: 60px;
+  backdrop-filter: blur(16px);
 }
 
 .navegacion {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   gap: 24px;
-  min-height: 80px;
+  min-height: 74px;
 }
 
 .marca {
-  font-size: 1.8rem;
-  font-weight: 800;
+  font-family: Georgia, serif;
+  font-size: 2rem;
+  font-style: italic;
 }
 
 .marca span {
@@ -103,288 +132,601 @@ a:focus-visible {
 .menu {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px 24px;
-  padding: 0;
+  gap: 12px 26px;
   margin: 0;
+  padding: 0;
   list-style: none;
 }
 
 .menu a {
+  display: inline-block;
   color: var(--secundario);
-  font-size: 0.95rem;
-  transition: color 0.2s ease;
+  font-size: 0.9rem;
+  transition: color 0.25s, transform 0.25s;
 }
 
 .menu a:hover {
   color: var(--acento);
+  transform: translateY(-2px);
 }
 
-/* Presentación principal */
-.portada {
-  display: grid;
-  grid-template-columns: 1.3fr 1fr;
-  align-items: center;
-  gap: 70px;
-  padding-block: 85px;
+/* ========================================
+   TIPOGRAFÍA EDITORIAL
+======================================== */
+h1,
+h2,
+h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  text-wrap: balance;
+}
+
+h1 {
+  margin: 20px 0 28px;
+  font-size: clamp(3rem, 6.5vw, 5.8rem);
+  line-height: 1.05;
+  letter-spacing: -0.055em;
+}
+
+h1 span {
+  display: block;
+  color: var(--acento);
+  font-style: italic;
+}
+
+h2 {
+  margin: 14px 0 24px;
+  font-size: clamp(2.3rem, 4.5vw, 3.8rem);
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+}
+
+h3 {
+  margin: 16px 0;
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.etiqueta,
+.tipo {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
 }
 
 .etiqueta {
   color: var(--acento);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-}
-
-h1,
-h2,
-h3 {
-  line-height: 1.15;
-}
-
-h1 {
-  margin: 18px 0 24px;
-  font-size: clamp(2.6rem, 6vw, 4.8rem);
-  letter-spacing: -0.045em;
-}
-
-h1 span {
-  color: var(--acento);
-}
-
-h2 {
-  margin: 14px 0 20px;
-  font-size: clamp(1.8rem, 4vw, 2.7rem);
-  letter-spacing: -0.03em;
-}
-
-h3 {
-  font-size: 1.4rem;
 }
 
 .introduccion,
 .texto {
-  max-width: 720px;
+  max-width: 650px;
   color: var(--secundario);
-  font-size: 1.08rem;
+  font-size: 1.05rem;
+}
+
+/* ========================================
+   PORTADA Y BOTONES ORGÁNICOS
+======================================== */
+.portada {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  gap: 75px;
+  padding-block: 100px 130px;
+}
+
+.portada > * {
+  min-width: 0;
 }
 
 .acciones {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
-  margin-top: 30px;
+  gap: 16px;
+  margin-top: 32px;
 }
 
 .boton {
   display: inline-flex;
-  justify-content: center;
   align-items: center;
-  min-height: 48px;
-  padding: 12px 20px;
-  border: 1px solid transparent;
-  border-radius: 12px;
+  justify-content: center;
+  min-height: 50px;
+  padding: 13px 25px;
+
+  border: 1px solid var(--borde);
+  border-radius: 28px 8px 28px 8px;
+
+  font-size: 0.9rem;
   font-weight: 600;
+
   transition:
-    transform 0.2s ease,
-    background-color 0.2s ease;
+    transform 0.25s,
+    border-radius 0.25s,
+    background-color 0.25s;
 }
 
 .boton:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
+  border-radius: 8px 28px 8px 28px;
 }
 
 .principal {
   color: var(--fondo);
   background: var(--acento);
+  border-color: var(--acento);
 }
 
 .principal:hover {
-  background: #c8baff;
+  background: #e2efbd;
 }
 
 .secundario {
-  border-color: var(--borde);
-  background: var(--superficie);
+  color: var(--texto);
+  background: transparent;
 }
 
 .secundario:hover {
-  background: #20304b;
+  background: var(--superficie);
 }
 
+/* ========================================
+   RETRATO COMO VENTANA DE JARDÍN
+======================================== */
 .perfil {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  max-width: 420px;
+  justify-self: center;
+
   margin: 0;
-  padding: 14px;
-  border: 1px solid var(--borde);
-  border-radius: 28px;
-  background: var(--superficie);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+  padding: 15px 15px 22px;
+
+  background: var(--crema);
+  border-radius: 48% 48% 12px 12px;
+  box-shadow: 18px 22px 0 #07160e55;
 }
 
 .perfil img {
   width: 100%;
   height: auto;
-  aspect-ratio: 6 / 7;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
-  border-radius: 18px;
+
+  border-radius: 48% 48% 4px 4px;
+  filter: saturate(0.85);
 }
 
 .perfil figcaption {
-  padding: 16px 4px 4px;
+  padding: 18px 10px 0;
+  color: var(--tinta);
   text-align: center;
-  color: var(--secundario);
-  font-size: 0.85rem;
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 0.95rem;
 }
 
-/* Secciones */
+/* Contorno botánico detrás del retrato */
+.perfil::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -20px 18px 18px -20px;
+
+  border: 1px solid #a5b67b80;
+  border-radius: 48% 48% 12px 12px;
+  transform: rotate(-7deg);
+  pointer-events: none;
+}
+
+/* Musgo estilizado en la base */
+.perfil::after {
+  content: "";
+  position: absolute;
+  right: -25px;
+  bottom: -18px;
+  width: 180px;
+  height: 75px;
+
+  background:
+    radial-gradient(
+      ellipse at 15% 75%,
+      #718543 0 20%, transparent 22%
+    ),
+    radial-gradient(
+      ellipse at 38% 65%,
+      #91a260 0 24%, transparent 26%
+    ),
+    radial-gradient(
+      ellipse at 65% 70%,
+      #5f753c 0 26%, transparent 28%
+    ),
+    radial-gradient(
+      ellipse at 88% 85%,
+      #80934f 0 23%, transparent 25%
+    );
+
+  pointer-events: none;
+}
+
+/* ========================================
+   SECCIONES CON RITMO Y ESPACIO
+======================================== */
 .seccion {
-  padding-block: 70px;
-  border-top: 1px solid var(--borde);
+  padding-block: 90px;
+}
+
+/* Sobre mí: hoja de papel con esquina curva */
+#sobre-mi {
+  padding: clamp(30px, 6vw, 75px);
+  margin-bottom: 60px;
+
+  color: var(--tinta);
+  background: var(--crema);
+  border-radius: 8px 100px 8px 8px;
+}
+
+#sobre-mi .etiqueta {
+  color: #52643c;
+}
+
+#sobre-mi .texto {
+  max-width: 760px;
+  color: #3e513e;
+}
+
+/* ========================================
+   HONGOS DECORATIVOS HECHOS CON CSS
+======================================== */
+
+/* Tallo del hongo */
+#sobre-mi::before {
+  content: "";
+  position: absolute;
+  right: 58px;
+  top: -44px;
+  width: 23px;
+  height: 55px;
+
+  background: linear-gradient(
+    90deg,
+    #c5bc94,
+    #efe5c6 50%,
+    #d8cea9
+  );
+
+  border-radius: 35% 35% 25% 25%;
+  transform: rotate(8deg);
+  pointer-events: none;
+}
+
+/* Sombrero con pequeñas manchas */
+#sobre-mi::after {
+  content: "";
+  position: absolute;
+  right: 22px;
+  top: -82px;
+  width: 100px;
+  height: 57px;
+
+  background:
+    radial-gradient(
+      circle at 30% 55%,
+      #f5e9cc 0 4px,
+      transparent 5px
+    ),
+    radial-gradient(
+      circle at 60% 28%,
+      #f5e9cc 0 5px,
+      transparent 6px
+    ),
+    radial-gradient(
+      circle at 78% 65%,
+      #f5e9cc 0 3px,
+      transparent 4px
+    ),
+    #ac704f;
+
+  border-radius: 55% 55% 18% 18% / 85% 85% 20% 20%;
+  box-shadow: inset 0 -8px 0 #754d36;
+  transform: rotate(8deg);
+  pointer-events: none;
+}
+
+/* ========================================
+   HABILIDADES COMO HOJAS
+======================================== */
+#habilidades {
+  padding-top: 40px;
 }
 
 .habilidades {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
+  gap: 24px;
+
   padding: 0;
-  margin-top: 30px;
+  margin: 40px 0 0;
   list-style: none;
 }
 
 .habilidades li {
-  padding: 20px;
-  border: 1px solid var(--borde);
-  border-radius: 14px;
-  background: var(--superficie);
-  transition:
-    transform 0.2s ease,
-    border-color 0.2s ease;
+  display: grid;
+  place-items: center;
+  min-height: 115px;
+  padding: 28px;
+
+  color: var(--texto);
+  background: #29452e;
+  border: 1px solid #597044;
+  border-radius: 55px 8px 55px 8px;
+
+  text-align: center;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.habilidades li:nth-child(2n) {
+  color: var(--tinta);
+  background: #c4d0a1;
+  border-radius: 8px 55px 8px 55px;
+}
+
+.habilidades li:nth-child(3n) {
+  background: #354631;
+  color: var(--texto);
+  border-radius: 55px 55px 8px 55px;
 }
 
 .habilidades li:hover {
-  transform: translateY(-4px);
-  border-color: var(--acento);
+  transform: translateY(-7px) rotate(-2deg);
 }
 
+/* ========================================
+   PROYECTOS: COMPOSICIÓN ASIMÉTRICA
+======================================== */
 .proyectos {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
-  margin-top: 30px;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: start;
+  gap: 35px;
+  margin-top: 45px;
+
+  counter-reset: proyecto;
 }
 
 .tarjeta {
-  padding: 30px;
-  border: 1px solid var(--borde);
-  border-radius: var(--radio);
-  background: var(--superficie);
-  transition: border-color 0.2s ease;
+  position: relative;
+  min-width: 0;
+  min-height: 330px;
+  padding: clamp(28px, 4vw, 45px);
+
+  color: var(--tinta);
+  background: var(--crema);
+  border-radius: 8px 70px 8px 8px;
+
+  counter-increment: proyecto;
+
+  transition: box-shadow 0.3s;
+}
+
+/* Numeración editorial */
+.tarjeta::before {
+  content: counter(proyecto, decimal-leading-zero);
+  display: block;
+  margin-bottom: 30px;
+
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 3.5rem;
+  line-height: 1;
+  color: #66734d;
+}
+
+.tarjeta:nth-child(even) {
+  margin-top: 70px;
+  background: #c3cda7;
+  border-radius: 70px 8px 8px 8px;
 }
 
 .tarjeta:hover {
-  border-color: var(--acento);
+  box-shadow: 10px 14px 0 #05120b66;
 }
 
 .tipo {
-  color: var(--acento);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+  color: #4e603c;
 }
 
 .tarjeta > p:not(.tipo) {
-  color: var(--secundario);
+  color: #3e513e;
 }
 
 .estado {
   display: inline-block;
-  margin-top: 12px;
-  padding: 5px 12px;
-  border-radius: 100px;
-  color: var(--acento);
-  background: rgba(181, 163, 255, 0.1);
+  padding: 6px 0;
+  margin-top: 15px;
+
+  border-bottom: 1px solid #65764c;
+  color: #405132;
   font-size: 0.8rem;
+}
+
+/* ========================================
+   ENLACES COMO ÍNDICE EDITORIAL
+======================================== */
+#enlaces {
+  margin-block: 30px 70px;
+  padding: clamp(28px, 5vw, 60px);
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: 70px 8px 70px 8px;
 }
 
 .enlaces {
   display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
+  flex-direction: column;
   padding: 0;
-  margin-top: 28px;
+  margin: 30px 0 0;
   list-style: none;
 }
 
+.enlaces li {
+  border-bottom: 1px solid var(--borde);
+}
+
+.enlaces li:last-child {
+  border-bottom: 0;
+}
+
 .enlaces a {
-  display: inline-block;
-  padding: 12px 18px;
-  border: 1px solid var(--borde);
-  border-radius: 12px;
-  transition:
-    color 0.2s ease,
-    border-color 0.2s ease;
+  display: block;
+  padding: 18px 8px;
+
+  font-family: Georgia, serif;
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+
+  transition: color 0.25s, padding-left 0.25s;
 }
 
 .enlaces a:hover {
+  padding-left: 20px;
   color: var(--acento);
-  border-color: var(--acento);
 }
 
+/* ========================================
+   PIE CON SUELO DE MUSGO
+======================================== */
 .pie {
-  padding-block: 25px;
-  border-top: 1px solid var(--borde);
+  position: relative;
+  padding: 65px 20px 30px;
   color: var(--secundario);
   text-align: center;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
+
+  background:
+    radial-gradient(
+      ellipse at 10% 100%,
+      #536c344d,
+      transparent 45%
+    ),
+    radial-gradient(
+      ellipse at 90% 100%,
+      #7b8c3940,
+      transparent 45%
+    );
 }
 
-/* Ajustes para tabletas y celulares */
-@media (max-width: 760px) {
-  .navegacion {
-    flex-direction: column;
-    gap: 8px;
-    padding-block: 12px;
-  }
+.pie::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10%;
+  width: 80%;
+  height: 1px;
 
-  .menu {
-    justify-content: center;
-    gap: 10px 16px;
-  }
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--musgo),
+    transparent
+  );
+}
 
+/* ========================================
+   ADAPTACIÓN A TABLETAS Y CELULARES
+======================================== */
+@media (max-width: 900px) {
   .portada {
-    grid-template-columns: 1fr;
     gap: 40px;
-    padding-block: 50px;
-  }
-
-  .perfil {
-    width: min(100%, 380px);
-    justify-self: center;
   }
 
   .habilidades {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
 
-  .proyectos {
+@media (max-width: 760px) {
+  .cabecera {
+    top: 8px;
+    border-radius: 25px;
+  }
+
+  .navegacion {
+    flex-direction: column;
+    gap: 5px;
+    padding-block: 10px;
+  }
+
+  .menu {
+    justify-content: center;
+    gap: 8px 16px;
+  }
+
+  .menu a {
+    font-size: 0.82rem;
+  }
+
+  .portada {
     grid-template-columns: 1fr;
+    gap: 50px;
+    padding-block: 65px 120px;
+  }
+
+  .perfil {
+    width: 85%;
+    max-width: 360px;
   }
 
   .seccion {
-    padding-block: 45px;
+    padding-block: 55px;
+  }
+
+  #sobre-mi {
+    border-top-right-radius: 65px;
+  }
+
+  .proyectos {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .tarjeta:nth-child(even) {
+    margin-top: 0;
+  }
+
+  #enlaces {
+    border-radius: 40px 8px 40px 8px;
   }
 }
 
 @media (max-width: 420px) {
-  .habilidades {
-    grid-template-columns: 1fr;
+  .contenedor {
+    width: 90%;
   }
 
-  .menu a {
-    font-size: 0.85rem;
+  .habilidades {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .habilidades li {
+    min-height: 90px;
+  }
+
+  .acciones {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  h1 {
+    font-size: 3rem;
   }
 }
 
-/* Respeta la preferencia de reducir movimiento */
+/* ========================================
+   RESPETO A MOVIMIENTO REDUCIDO
+======================================== */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -395,5 +737,11 @@ h3 {
   *::after {
     animation: none !important;
     transition: none !important;
+  }
+
+  .boton:hover,
+  .habilidades li:hover,
+  .menu a:hover {
+    transform: none;
   }
 }
